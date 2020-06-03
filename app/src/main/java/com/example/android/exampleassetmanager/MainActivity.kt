@@ -26,12 +26,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewAssetLoader.AssetsPathHandler
 import com.example.android.exampleassetmanager.databinding.ActivityMainBinding
+import java.io.File
 
 
 class MainActivity : AppCompatActivity() {
     var assetLoader: WebViewAssetLoader? = null
     private lateinit var binding: ActivityMainBinding
-    private lateinit var webView: WebView
+    private lateinit var textWebView: WebView
+    private lateinit var photoWebView: WebView
+   
 
     inner class MyWebViewClient : WebViewClient() {
 
@@ -52,39 +55,61 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        webView = binding.activityMainWebview
+        //bind objects
+        textWebView = binding.textWebview
+        photoWebView = binding.photoWebview
 
-        //webView.webViewClient = WebViewClient()
-      //  webView.settings.javaScriptEnabled = true
+        //set clients
+        photoWebView.webViewClient = MyWebViewClient()
+        textWebView.webViewClient = MyWebViewClient()
 
-        webView.webViewClient = MyWebViewClient()
 
 
+        setTitle(R.string.app_name);
+        //WebkitHelpers.appendWebViewVersionToTitle(this);
+
+        //configure the asset loader with default domain and path for res and assets
         assetLoader = WebViewAssetLoader.Builder()
-            .setDomain("www.iana.org")
+            .addPathHandler(
+                "/res/",
+                WebViewAssetLoader.ResourcesPathHandler(this)
+            )
+
             .addPathHandler("/assets/", AssetsPathHandler(this))
-            // .addPathHandler("/index.html/", ResourcesPathHandler(this))
-            .build()
+            .build();
 
 
-        val path = Uri.Builder()
+        // set the path to the text to display
+        val pathText = Uri.Builder()
             .scheme("https")
             .authority(WebViewAssetLoader.DEFAULT_DOMAIN)
             .appendPath("assets")
-            //.appendPath("www")
-            .appendPath("index.html")
+            //.appendPath("resources")
+            //  .appendPath("www")
+            .appendPath("myText.html")
             .build()
 
-        //webView.loadUrl(path.toString());
-        webView.loadUrl("https://www.example.com")
+        //set the path to the photo to display
+        val pathPhoto = Uri.Builder()
+            .scheme("https")
+            .authority(WebViewAssetLoader.DEFAULT_DOMAIN)
+            .appendPath("res")
+            .appendPath("drawable")
+            //  .appendPath("www")
+            .appendPath("dog.jpg")
+            .build()
 
+
+
+        textWebView.loadUrl(pathText.toString())
+        photoWebView.loadUrl(pathPhoto.toString())
 
 
     }
 
     override fun onBackPressed() {
-        if (webView.canGoBack()) {
-            webView.goBack()
+        if (photoWebView.canGoBack()) {
+            photoWebView.goBack()
         } else {
             super.onBackPressed()
         }
