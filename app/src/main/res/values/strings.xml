@@ -9,4 +9,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="button_text">Click Me!</string>
+    <string name="double_text_button_text">Double Text</string>
+    <string name="switch_button_text">Switch Dogs</string>
 </resources>
