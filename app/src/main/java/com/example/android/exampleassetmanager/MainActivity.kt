@@ -18,14 +18,17 @@ package com.example.android.exampleassetmanager
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewAssetLoader.AssetsPathHandler
+import androidx.webkit.WebViewFeature
 import com.example.android.exampleassetmanager.databinding.ActivityMainBinding
 
 
@@ -50,6 +53,13 @@ class MainActivity : AppCompatActivity() {
         fun showToast(toast: String) {
             Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show()
         }
+
+        /** Show a toast from the web page  */
+        @JavascriptInterface
+        fun changePage() {
+
+        }
+
     }
 
 
@@ -65,24 +75,48 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         //set clients
-        binding.textWebview.webViewClient = MyWebViewClient(assetLoader)
+        binding.webview.webViewClient = MyWebViewClient(assetLoader)
 
         setTitle(R.string.app_name)
 
-        binding.textWebview.settings.javaScriptEnabled = true
-        binding.textWebview.addJavascriptInterface(WebAppInterface(this), "Android")
+
+        //enable java script
+        binding.webview.settings.javaScriptEnabled = true
+
+        //set dark mode
+        if(WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+            WebSettingsCompat.setForceDark(binding.webview.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
+        }
+
+        //Bind that webAppInterface class to the JS and name it Android
+        binding.webview.addJavascriptInterface(WebAppInterface(this),  "Dogs")
 
         // set the path to the text to display
-        val pathText = Uri.Builder()
+        val path = Uri.Builder()
             .scheme("https")
             .authority(WebViewAssetLoader.DEFAULT_DOMAIN)
             .appendPath("assets")
-            //.appendPath("res")
-            //  .appendPath("www")
             .appendPath("myText.html")
             .build()
 
-        binding.textWebview.loadUrl(pathText.toString())
+        binding.webview.loadUrl(path.toString())
     }
+
+
+    //allow users to navigate back to a previous page
+    override fun onBackPressed() {
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        if (binding.webview.canGoBack()) {
+            binding.webview.goBack()
+        } else {
+            super.onBackPressed()
+        }
+
+
+
+    }
+
+
 
 }

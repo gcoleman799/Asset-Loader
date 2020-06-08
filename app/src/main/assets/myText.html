@@ -1,34 +1,117 @@
+<!--Copyright-->
+
+<!--Copyright (C) 2020 The Android Open Source Project-->
+
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <!DOCTYPE html>
 <html>
 <head>
     <style>
       .button {
-        background-color: #1c87c9;
+        background-color: #fcf99a;
         border: none;
         color: white;
-        padding: 20px 34px;
+        padding: 10px 24px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 20px;
+        font-size: 14sp;
         margin: 4px 2px;
         cursor: pointer;
       }
+
+      .text {
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14sp;
+        color: grey;
+      }
+
     </style>
+
+
 </head>
 <body style="background-color:
-#91D1CB;">
-<h1 style="text-align:center; font-family:comic-sans"> A Dog's Life </h1></br>
-<a id="button" href="https://www.w3docs.com/" class="button">Click Here</a>
+    #d3e7eb;">
+<h1 style="text-align:center; font-family:comic-sans"> Dog Breeds </h1></br>
 
-<h2> This is an made out of a few web views to give you some insight into the wonderful life of the pup you see below.</h2>
-<img src="/res/drawable/dog.jpg">
-<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+<p id="id1">Practice Text</p>
 
-<script type="text/javascript">
-    function showAndroidToast(toast) {
-        Android.showToast(toast);
-    }
+<button onclick="document.getElementById('id1').style.color = 'red'">Practice</button>
+
+
+<button onclick="changePage()">Change Page</button>
+
+<button onclick="fetch()">Fetch</button>
+
+
+
+<ul class="text">
+    <li>Golden Retriever</li>
+    <img src="/res/drawable/dog.jpg">
+    <p> Click Below to learn more!</p>
+    <a id="golden_button" href="https://dogtime.com/dog-breeds/golden-retriever#/slide/1"
+       class="button">Golden Retriever</a>
+    <br>
+
+    <li>Bernese Mountain Dog</li>
+    <img src="/res/drawable/bernese.jpg">
+    <a id="bernese_button" href="https://dogtime.com/dog-breeds/bernese-mountain-dog#/slide/1"
+       class="button">Bernese Mountain Dog</a>
+    <br>
+
+    <li>St. Bernard</li>
+    <img src="/res/drawable/stbernard.jpg">
+    <a id="bernard_button" href="https://dogtime.com/dog-breeds/saint-bernard#/slide/1"
+       class="button">St. Bernard</a>
+</ul>
+
+<h2 style="text-align:center; font-family:comic-sans"> Join us!</h2>
+<p class="text" style="text-align:center"> We add new breeds all the time! Submit the form below to
+    be added to our email list
+    and get
+    alerted whenever we add a new breed.</p>
+
+<form>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <input type="button" value="Submit"
+           onClick="showAndroidToast('Thank you, your information has been submitted!')"/>
+
+
+</form>
+
+
+<script>
+            function showAndroidToast(toast) {
+                Dogs.showToast(toast);
+            }
+
+            function changePage() {
+                Dogs.changePage();
+            }
+
+          function fetch() {
+                   fetch('http://example.com/movies.json')
+                    .then(response => response.json())
+                    .then(data => Dogs.showToast(data);
+            }
+
+
 </script>
 </body>
 </html>
