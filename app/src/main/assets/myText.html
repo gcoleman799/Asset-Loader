@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+    <style>
+      .button {
+        background-color: #1c87c9;
+        border: none;
+        color: white;
+        padding: 20px 34px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+</head>
 <body style="background-color:
 #91D1CB;">
 <h1 style="text-align:center; font-family:comic-sans"> A Dog's Life </h1></br>
+<a id="button" href="https://www.w3docs.com/" class="button">Click Here</a>
+
 <h2> This is an made out of a few web views to give you some insight into the wonderful life of the pup you see below.</h2>
 <img src="/res/drawable/dog.jpg">
+<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+
+<script type="text/javascript">
+    function showAndroidToast(toast) {
+        Android.showToast(toast);
+    }
+</script>
 </body>
 </html>

@@ -15,11 +15,14 @@
 //limitations under the License.
 package com.example.android.exampleassetmanager
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewAssetLoader.AssetsPathHandler
@@ -39,6 +42,16 @@ class MainActivity : AppCompatActivity() {
         ) = assetLoader.shouldInterceptRequest(request.url)
     }
 
+    /** Instantiate the interface and set the context  */
+    class WebAppInterface(private val mContext: Context) {
+
+        /** Show a toast from the web page  */
+        @JavascriptInterface
+        fun showToast(toast: String) {
+            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +68,9 @@ class MainActivity : AppCompatActivity() {
         binding.textWebview.webViewClient = MyWebViewClient(assetLoader)
 
         setTitle(R.string.app_name)
+
+        binding.textWebview.settings.javaScriptEnabled = true
+        binding.textWebview.addJavascriptInterface(WebAppInterface(this), "Android")
 
         // set the path to the text to display
         val pathText = Uri.Builder()
