@@ -70,8 +70,11 @@ class MainActivity : AppCompatActivity() {
 
         //configure the asset loader with default domain and path for res and assets
         val assetLoader = WebViewAssetLoader.Builder()
+            //.setDomain("https://www.iana.org")
             .addPathHandler("/res/", WebViewAssetLoader.ResourcesPathHandler(this))
             .addPathHandler("/assets/", AssetsPathHandler(this))
+
+            //.addPathHandler("/domains/example/", AssetsPathHandler(this))
             .build()
 
         //set clients
@@ -100,6 +103,7 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         binding.webview.loadUrl(path.toString())
+       // binding.webview.loadUrl("https://example.com/")
     }
 
 
