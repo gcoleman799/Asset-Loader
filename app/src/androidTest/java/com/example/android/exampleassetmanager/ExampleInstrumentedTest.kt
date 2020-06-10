@@ -1,23 +1,19 @@
 package com.example.android.exampleassetmanager
 
 
-import android.app.PendingIntent.getActivity
+import android.R
 import androidx.test.espresso.web.assertion.WebViewAssertions.webMatches
 import androidx.test.espresso.web.model.Atoms.getCurrentUrl
-import androidx.test.espresso.web.sugar.Web
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
-import androidx.test.espresso.web.webdriver.Locator
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
-import com.google.android.material.internal.ContextUtils.getActivity
 import org.hamcrest.CoreMatchers.containsString
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-
 
 
 /**
@@ -33,30 +29,30 @@ private const val DOPPIO = "Doppio"
 @RunWith(AndroidJUnit4::class)
 open class WebViewActivityTest {
 
+//     @Rule
+//     var mRule: IntegrationActivityTestRule<MainActivity> = IntegrationActivityTestRule(
+//        MainActivity::class.java,
+//         R.id.webview
+//     )
 
-    @get:Rule
-    val activityRule = ActivityTestRule(MainActivity::class.java)
+//    @Test
+//    open fun testAssetLoaderSimpleActivity() {
+//        mRule.assertHtmlElementContainsText(
+//            R.id.webview, "assets_success_msg",
+//            "Successfully loaded html from assets!"
+//        )
+//    }
 
-
-//        @get:Rule val activityScenarioRule =
-//            activityScenarioRule<MainActivity>()
-
-    @Test
-    fun testWebViewInteraction() {
-        onWebView().forceJavascriptEnabled()
-    }
-
-
-    @Test
-    fun checkLinkDestination() {
-        onWebView()
-            .withElement(findElement(androidx.test.espresso.web.webdriver.Locator.ID, "button")) // similar to onView(withId(...))
-            .perform(webClick()) // Similar to perform(click())
-
-            // Similar to check(matches(...))
-            .check(webMatches(getCurrentUrl(), containsString("https://www.w3docs.com/")))
-    }
 }
+
+
+
+
+
+
+
+
+
 
 
 
