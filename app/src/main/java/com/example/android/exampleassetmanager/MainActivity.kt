@@ -69,30 +69,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //configure the asset loader with default domain and path for res and assets
+        //with the asset loader we are just resetting the
         val assetLoader = WebViewAssetLoader.Builder()
-            //.setDomain("https://www.iana.org")
-            .addPathHandler("/res/", WebViewAssetLoader.ResourcesPathHandler(this))
-            .addPathHandler("/assets/", AssetsPathHandler(this))
+            .setDomain("gcoleman799.github.io")
+           // .addPathHandler("/res/", WebViewAssetLoader.ResourcesPathHandler(this))
+           // .addPathHandler("/assets/", AssetsPathHandler(this))
 
-            //.addPathHandler("/domains/example/", AssetsPathHandler(this))
+            .addPathHandler("/Asset-Loader/NewImage/", AssetsPathHandler(this))
             .build()
 
         //set clients
-        binding.webview.webViewClient = MyWebViewClient(assetLoader)
+        binding.textWebview.webViewClient = MyWebViewClient(assetLoader)
 
         setTitle(R.string.app_name)
 
 
         //enable java script
-        binding.webview.settings.javaScriptEnabled = true
+        binding.textWebview.settings.javaScriptEnabled = true
 
         //set dark mode
         if(WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
-            WebSettingsCompat.setForceDark(binding.webview.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
+            WebSettingsCompat.setForceDark(binding.textWebview.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
         }
 
         //Bind that webAppInterface class to the JS and name it Android
-        binding.webview.addJavascriptInterface(WebAppInterface(this),  "Dogs")
+        binding.textWebview.addJavascriptInterface(WebAppInterface(this),  "Dogs")
 
         // set the path to the text to display
         val path = Uri.Builder()
@@ -102,8 +103,11 @@ class MainActivity : AppCompatActivity() {
             .appendPath("myText.html")
             .build()
 
-        binding.webview.loadUrl(path.toString())
-       // binding.webview.loadUrl("https://example.com/")
+        //binding.webview.loadUrl(path.toString())
+
+        //here we are directing to the index file in assets. We can access this local file because the asset loader above
+        //redefines the path we use to access our assets folder
+        binding.textWebview.loadUrl("https://gcoleman799.github.io/Asset-Loader/")
     }
 
 
@@ -111,8 +115,8 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        if (binding.webview.canGoBack()) {
-            binding.webview.goBack()
+        if (binding.textWebview.canGoBack()) {
+            binding.textWebview.goBack()
         } else {
             super.onBackPressed()
         }
