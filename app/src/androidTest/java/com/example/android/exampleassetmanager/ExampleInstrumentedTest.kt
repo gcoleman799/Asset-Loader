@@ -29,6 +29,7 @@ private const val DOPPIO = "Doppio"
 @RunWith(AndroidJUnit4::class)
 open class WebViewActivityTest {
 
+
     @Rule
     var mRule: IntegrationActivityTestRule<MainActivity> = IntegrationActivityTestRule(
        MainActivity::class.java,
@@ -44,6 +45,16 @@ open class WebViewActivityTest {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
