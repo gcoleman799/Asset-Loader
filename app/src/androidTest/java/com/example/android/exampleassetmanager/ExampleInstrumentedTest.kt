@@ -29,21 +29,23 @@ private const val DOPPIO = "Doppio"
 @RunWith(AndroidJUnit4::class)
 open class WebViewActivityTest {
 
-//     @Rule
-//     var mRule: IntegrationActivityTestRule<MainActivity> = IntegrationActivityTestRule(
-//        MainActivity::class.java,
-//         R.id.webview
-//     )
 
-//    @Test
-//    open fun testAssetLoaderSimpleActivity() {
-//        mRule.assertHtmlElementContainsText(
-//            R.id.webview, "assets_success_msg",
-//            "Successfully loaded html from assets!"
-//        )
-//    }
+    @Rule
+    var mRule: IntegrationActivityTestRule<MainActivity> = IntegrationActivityTestRule(
+       MainActivity::class.java,
+        R.id.text_webview
+    )
+
+    @Test
+    open fun testAssetLoaderSimpleActivity() {
+        mRule.assertHtmlElementContainsText(
+            R.id.text_webview, "assets_success_msg",
+            "Successfully loaded html from assets!"
+        )
+    }
 
 }
+
 
 
 

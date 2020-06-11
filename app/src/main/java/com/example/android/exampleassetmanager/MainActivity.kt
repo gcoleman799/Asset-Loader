@@ -90,9 +90,12 @@ class MainActivity : AppCompatActivity() {
         //with the asset loader we are just resetting the
         val assetLoader = WebViewAssetLoader.Builder()
             .setDomain("gcoleman799.github.io")
-            .addPathHandler("/res/", WebViewAssetLoader.ResourcesPathHandler(this))
-            //.addPathHandler("/assets/", AssetsPathHandler(this))
-            .addPathHandler("/Asset-Loader/", AssetsPathHandler(this))
+
+           // .addPathHandler("/res/", WebViewAssetLoader.ResourcesPathHandler(this))
+           // .addPathHandler("/assets/", AssetsPathHandler(this))
+
+            .addPathHandler("/Asset-Loader/NewImage/", AssetsPathHandler(this))
+
             .build()
 
         //set clients
