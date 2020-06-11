@@ -18,11 +18,9 @@ package com.example.android.exampleassetmanager
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.system.Os.open
 import android.util.Log
-import android.webkit.JavascriptInterface
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.webkit.WebSettingsCompat
@@ -30,6 +28,9 @@ import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewAssetLoader.AssetsPathHandler
 import androidx.webkit.WebViewFeature
 import com.example.android.exampleassetmanager.databinding.ActivityMainBinding
+import java.nio.channels.AsynchronousFileChannel.open
+import java.nio.channels.AsynchronousServerSocketChannel.open
+import java.nio.channels.DatagramChannel.open
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,10 +40,27 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
-        override fun shouldInterceptRequest(
-            view: WebView?,
-            request: WebResourceRequest
-        ) = assetLoader.shouldInterceptRequest(request.url)
+
+
+            override fun shouldInterceptRequest(
+                view: WebView,
+                request: WebResourceRequest
+            ): WebResourceResponse? {
+                
+                return if (request.url.lastPathSegment == "Asset-Loader") {
+                    
+                    //Take the requested location and add index.html, this means that the asset loader is
+                    //being used to redirect url call to this specific website and using local assets for this
+                    //location only but that all other https requests will be handeled with network calls
+                    var newStringDest = request.url.toString()+"index.html"
+                    var newDest= Uri.parse(newStringDest)
+                    assetLoader.shouldInterceptRequest(newDest)
+                } else {
+                    return null
+                }
+            }
+
+
     }
 
     /** Instantiate the interface and set the context  */
@@ -72,10 +90,12 @@ class MainActivity : AppCompatActivity() {
         //with the asset loader we are just resetting the
         val assetLoader = WebViewAssetLoader.Builder()
             .setDomain("gcoleman799.github.io")
+
            // .addPathHandler("/res/", WebViewAssetLoader.ResourcesPathHandler(this))
            // .addPathHandler("/assets/", AssetsPathHandler(this))
 
             .addPathHandler("/Asset-Loader/NewImage/", AssetsPathHandler(this))
+
             .build()
 
         //set clients
@@ -95,15 +115,6 @@ class MainActivity : AppCompatActivity() {
         //Bind that webAppInterface class to the JS and name it Android
         binding.textWebview.addJavascriptInterface(WebAppInterface(this),  "Dogs")
 
-        // set the path to the text to display
-        val path = Uri.Builder()
-            .scheme("https")
-            .authority(WebViewAssetLoader.DEFAULT_DOMAIN)
-            .appendPath("assets")
-            .appendPath("myText.html")
-            .build()
-
-        //binding.webview.loadUrl(path.toString())
 
         //here we are directing to the index file in assets. We can access this local file because the asset loader above
         //redefines the path we use to access our assets folder
