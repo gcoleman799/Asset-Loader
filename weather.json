@@ -1,5 +1,12 @@
 {
-  "location": "WebView Town",
-  "description" : "Rainy and 65",
-  "icon": "https://gcoleman799.github.io/res/drawable/thunderstorm.png"
+   1:{
+      "location":"New York",
+      "temp":"85",
+      "description":"Partly Cloudy"
+   },
+   2:{
+      "location":"California",
+      "temp":"75",
+      "description":"Sunny"
+   }
 }
