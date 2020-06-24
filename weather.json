@@ -2,14 +2,17 @@
 {
    "newYork":{
       "temp":"85",
-      "description":"Rainy"
+      "description":"Rainy",
+      "icon": "https://github.com/gcoleman799/Asset-Loader/res/drawable/thunderstorm.jpg"
    },
    "sanFrancisco":{
       "temp":"85",
-      "description":"Clear Sky"
+      "description":"Clear Sky",
+      "icon": "https://github.com/gcoleman799/Asset-Loader/res/drawable/sunny.jpg"
    },
    "london":{
       "temp":"85",
-      "description":"Partly Cloudy"
+      "description":"Partly Cloudy",
+      "icon": "https://github.com/gcoleman799/Asset-Loader/res/drawable/cloudy.jpg"
    }
 }
