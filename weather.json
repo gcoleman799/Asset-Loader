@@ -1,7 +1,6 @@
 
 {
-   "one":{
-      "location":"New York",
+   "New York":{
       "monday":{
          "temp":"85",
          "description":"Partly Cloudy"
@@ -11,8 +10,7 @@
          "description":"Partly Cloudy"
       }
    },
-   "two":{
-      "location":"California",
+   "San Francisco":{
       "monday":{
          "temp":"63",
          "description":"Partly Cloudy"
