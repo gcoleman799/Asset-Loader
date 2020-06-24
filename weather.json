@@ -1,33 +1,15 @@
 
 {
-   "newYork":[
-      "monday":{
-         "temp":"85",
-         "description":"Partly Cloudy"
-      },
-      "tuesday":{
-         "temp":"85",
-         "description":"Partly Cloudy"
-      }
-   ],
-   "San Francisco":[
-      "monday":{
-         "temp":"63",
-         "description":"Partly Cloudy"
-      },
-      "tuesday":{
-         "temp":"72",
-         "description":"Sunny"
-      }
-   ],
-    "London":[
-      "monday":{
-         "temp":"56",
-         "description":"Partly Cloudy"
-      },
-      "tuesday":{
-         "temp":"54",
-         "description":"Rainy"
-      }
-   ]
+   "newYork":{
+      "temp":"85",
+      "description":"Partly Cloudy"
+   },
+   "San Francisco":{
+      "temp":"85",
+      "description":"Partly Cloudy"
+   },
+   "London":{
+      "temp":"85",
+      "description":"Partly Cloudy"
+   }
 }
