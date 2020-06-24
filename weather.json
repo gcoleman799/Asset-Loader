@@ -1,6 +1,6 @@
 
 {
-   "newYork":{
+   "newYork":[
       "monday":{
          "temp":"85",
          "description":"Partly Cloudy"
@@ -9,8 +9,8 @@
          "temp":"85",
          "description":"Partly Cloudy"
       }
-   },
-   "San Francisco":{
+   ],
+   "San Francisco":[
       "monday":{
          "temp":"63",
          "description":"Partly Cloudy"
@@ -19,8 +19,8 @@
          "temp":"72",
          "description":"Sunny"
       }
-   }
-    "London":{
+   ],
+    "London":[
       "monday":{
          "temp":"56",
          "description":"Partly Cloudy"
@@ -29,5 +29,5 @@
          "temp":"54",
          "description":"Rainy"
       }
-   }
+   ]
 }
