@@ -2,11 +2,11 @@
 {
    "newYork":{
       "temp":"85",
-      "description":"Partly Cloudy"
+      "description":"Rainy"
    },
    "San Francisco":{
       "temp":"85",
-      "description":"Partly Cloudy"
+      "description":"Clear Sky"
    },
    "London":{
       "temp":"85",
