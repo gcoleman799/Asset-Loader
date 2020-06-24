@@ -20,4 +20,14 @@
          "description":"Sunny"
       }
    }
+    "London":{
+      "monday":{
+         "temp":"56",
+         "description":"Partly Cloudy"
+      },
+      "tuesday":{
+         "temp":"54",
+         "description":"Rainy"
+      }
+   }
 }
