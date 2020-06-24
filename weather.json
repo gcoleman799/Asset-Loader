@@ -1,12 +1,25 @@
+
 {
-   "1":{
+   "one":{
       "location":"New York",
-      "temp":"85",
-      "description":"Partly Cloudy"
+      "monday":{
+         "temp":"85",
+         "description":"Partly Cloudy"
+      },
+      "tuesday":{
+         "temp":"85",
+         "description":"Partly Cloudy"
+      }
    },
-   "2":{
+   "two":{
       "location":"California",
-      "temp":"75",
-      "description":"Sunny"
+      "monday":{
+         "temp":"63",
+         "description":"Partly Cloudy"
+      },
+      "tuesday":{
+         "temp":"72",
+         "description":"Sunny"
+      }
    }
 }
