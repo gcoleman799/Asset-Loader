@@ -8,7 +8,7 @@
    "sanFrancisco":{
       "temp":"85",
       "description":"Clear Sky",
-      "icon": "https://github.com/gcoleman799/Asset-Loader/res/drawable/sunny.jpg"
+      "icon": "https://github.com/gcoleman799/Asset-Loader/res/drawable/sunny.png"
    },
    "london":{
       "temp":"85",
