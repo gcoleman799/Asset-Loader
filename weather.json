@@ -3,16 +3,16 @@
    "newYork":{
       "temp":"85",
       "description":"Rainy",
-      "icon": "https://github.com/gcoleman799/Asset-Loader/res/drawable/thunderstorm.jpg"
+      "icon":"https://gcoleman799.github.io/res/drawable/thunderstorm.jpg"
    },
    "sanFrancisco":{
       "temp":"85",
       "description":"Clear Sky",
-      "icon": "https://github.com/gcoleman799/Asset-Loader/res/drawable/sunny.png"
+      "icon": "https://gcoleman799.github.io/res/drawable/sunny.png"
    },
    "london":{
       "temp":"85",
       "description":"Partly Cloudy",
-      "icon": "https://github.com/gcoleman799/Asset-Loader/res/drawable/cloudy.jpg"
+      "icon":"https://gcoleman799.github.io/res/drawable/cloudy.png"
    }
 }
