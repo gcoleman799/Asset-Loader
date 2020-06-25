@@ -7,7 +7,7 @@
       "chancePercip":"90%",
       "humidity":"23%",
       "description":"Rainy",
-      "icon":"https://gcoleman799.github.io/res/drawable/thunderstorm.jpg"
+      "icon":"https://gcoleman799.github.io/res/drawable/rain.png"
    },
    "sanFrancisco":{
       "temp":"70",
@@ -25,6 +25,6 @@
       "chancePercip":"15%",
       "humidity":"36%",
       "description":"Partly Cloudy",
-      "icon":"https://gcoleman799.github.io/res/drawable/cloudy.png"
+      "icon":"https://gcoleman799.github.io/res/drawable/partly_cloudy.png"
    }
 }
