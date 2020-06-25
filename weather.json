@@ -19,7 +19,7 @@
       "icon": "https://gcoleman799.github.io/res/drawable/sunny.png"
    },
    "london":{
-      "currenttemp":"88°",
+      "currentTemp":"88°",
       "highTemp":"89°",
       "lowTemp":"67°",
       "chancePercip":"15%",
