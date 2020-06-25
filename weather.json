@@ -1,17 +1,29 @@
 
 {
    "newYork":{
-      "temp":"85",
+      "currentTemp":"75",
+      "highTemp":"83",
+      "lowTemp":"64",
+      "chancePercip":"90%",
+      "humidity":"23%",
       "description":"Rainy",
       "icon":"https://gcoleman799.github.io/res/drawable/thunderstorm.jpg"
    },
    "sanFrancisco":{
-      "temp":"85",
+      "temp":"70",
+      "highTemp":"75",
+      "lowTemp":"61",
+      "chancePercip":"0%",
+      "humidity":"2%",
       "description":"Clear Sky",
       "icon": "https://gcoleman799.github.io/res/drawable/sunny.png"
    },
    "london":{
-      "temp":"85",
+      "temp":"88",
+      "highTemp":"89",
+      "lowTemp":"67",
+      "chancePercip":"15%",
+      "humidity":"36%",
       "description":"Partly Cloudy",
       "icon":"https://gcoleman799.github.io/res/drawable/cloudy.png"
    }
